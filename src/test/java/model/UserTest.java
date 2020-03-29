@@ -3,7 +3,6 @@ package model;
 
 import controllers.UserController;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import testConfig.TestConfig;
 
 import static org.junit.Assert.assertEquals;
