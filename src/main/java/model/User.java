@@ -18,4 +18,8 @@ public class User  {
         Id = id;
         this.fullName = fullName;
     }
+
+    public User(String id) {
+        Id = id;
+    }
 }

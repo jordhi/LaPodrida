@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class UserController {
@@ -19,7 +20,11 @@ public class UserController {
 
     public List<User> readAll() {
         List<User> u = new ArrayList<>();
-        //u.add(new User());
+        u.add(new User("1"));
         return u;
+    }
+
+    public void add(String id) {
+        userRepo.add(new User());
     }
 }

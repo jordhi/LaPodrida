@@ -3,9 +3,7 @@ package resources;
 import controllers.UserController;
 import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +22,10 @@ public class UserResource {
     @GetMapping
     public List<User> readAll() {
         return userController.readAll();
+    }
+
+    @PostMapping("/{id}")
+    public void addUser(@PathVariable String id) {
+        userController.add(id);
     }
 }
