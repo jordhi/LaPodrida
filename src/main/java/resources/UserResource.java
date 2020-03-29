@@ -24,8 +24,8 @@ public class UserResource {
         return userController.readAll();
     }
 
-    @PostMapping("/{id}")
-    public void addUser(@PathVariable String id) {
-        userController.add(id);
+    @PostMapping
+    public void addUser(@RequestBody User user) {
+        userController.add(user);
     }
 }
