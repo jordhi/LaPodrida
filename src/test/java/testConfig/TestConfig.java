@@ -17,6 +17,6 @@ import java.lang.annotation.Target;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = {Main.MainApp.class})
 @TestPropertySource("classpath:test.properties")
-@ActiveProfiles("dev")
+//@ActiveProfiles("dev")
 public @interface TestConfig {
 }
