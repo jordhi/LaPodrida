@@ -5,9 +5,11 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Document
+//@Document mongodb annotation
 public class User  {
-    @Id private String Id;
+    //@Id mongodb property
+    private String Id;
+
     private String email;
     private String password;
     private String fullName;

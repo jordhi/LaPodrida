@@ -15,8 +15,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest
-@TestPropertySource
+@SpringBootTest(classes = {Main.MainApp.class})
+@TestPropertySource("classpath:test.properties")
 @ActiveProfiles("dev")
 public @interface TestConfig {
 }
