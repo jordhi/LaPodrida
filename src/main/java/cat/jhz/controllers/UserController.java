@@ -1,6 +1,6 @@
-package controllers;
+package cat.jhz.controllers;
 
-import model.User;
+import cat.jhz.model.User;
 import org.springframework.stereotype.Controller;
 
 import java.util.ArrayList;

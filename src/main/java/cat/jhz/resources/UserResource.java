@@ -1,7 +1,7 @@
-package resources;
+package cat.jhz.resources;
 
-import controllers.UserController;
-import model.User;
+import cat.jhz.controllers.UserController;
+import cat.jhz.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
