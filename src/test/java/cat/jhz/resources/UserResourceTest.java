@@ -3,8 +3,6 @@ package cat.jhz.resources;
 import cat.jhz.model.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import testConfig.ApiTestConfig;
 import org.springframework.web.reactive.function.BodyInserters;
@@ -25,7 +23,7 @@ public class UserResourceTest {
         this.webTestClient
                 .post()
                 .uri(UserResource.USER)
-                .body(BodyInserters.fromObject(user))
+                .body(BodyInserters.fromValue(user))
                 .exchange()
                 .expectStatus().isOk();
         List<User> list =

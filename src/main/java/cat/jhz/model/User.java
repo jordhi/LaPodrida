@@ -2,11 +2,12 @@ package cat.jhz.model;
 
 import lombok.Data;
 
+
 @Data
 //@Document mongodb annotation
 public class User  {
     //@Id mongodb property
-    private String Id;
+    private String id;
 
     private String email;
     private String password;
@@ -15,20 +16,20 @@ public class User  {
     public User() {}
 
     public User(String id, String fullName) {
-        Id = id;
+        this.id = id;
         this.fullName = fullName;
     }
 
     public User(String id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void setId(String id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getEmail() {
@@ -58,7 +59,7 @@ public class User  {
     @Override
     public String toString() {
         return "User{" +
-                "Id='" + Id + '\'' +
+                "Id='" + id + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", fullName='" + fullName + '\'' +

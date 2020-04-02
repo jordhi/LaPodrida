@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(UserResource.USER)
@@ -22,6 +23,15 @@ public class UserResource {
     @GetMapping
     public List<User> readAll() {
         return userController.readAll();
+    }
+
+    @GetMapping("/{id}")
+    public List<User> getUser(@PathVariable String id) {
+        return
+                userController.readAll()
+                        .stream()
+                        .filter(u -> u.getId().equals(id))
+                        .collect(Collectors.toList());
     }
 
     @PostMapping
