@@ -2,6 +2,8 @@ package cat.jhz.model;
 
 import lombok.Data;
 
+import java.util.List;
+
 
 @Data
 //@Document mongodb annotation
@@ -12,6 +14,8 @@ public class User  {
     private String email;
     private String password;
     private String fullName;
+
+    List<Card> cartes;
 
     public User() {}
 
