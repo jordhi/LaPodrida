@@ -7,6 +7,7 @@
     <groupId>cat.jhz</groupId>
     <artifactId>LaPodrida</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -64,6 +65,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>cat.jhz.Main.MainApp</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>
