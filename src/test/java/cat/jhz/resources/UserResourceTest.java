@@ -4,7 +4,7 @@ import cat.jhz.model.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.reactive.server.WebTestClient;
-import testConfig.ApiTestConfig;
+import cat.jhz.ApiTestConfig;
 import org.springframework.web.reactive.function.BodyInserters;
 
 import java.util.List;
