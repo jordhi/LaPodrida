@@ -2,6 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>La Podrida Game</title>
     <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
@@ -9,7 +11,7 @@
 
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">La Podrida</a>
+      <a class="navbar-brand" href="#">La Podrida</a>
 </nav>
 
 <main role="main" class="container">
@@ -21,11 +23,9 @@
         </h2>
     </div>
 
-    <ol>
-        <!--
-        <li th:each="task : ${tasks}" th:text="${task}"></li>
-        -->
-    </ol>
+    <ul th:each="player : ${users}">
+        <li th:text="${player}"></li>
+    </ul>
 
 </main>
 <script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
