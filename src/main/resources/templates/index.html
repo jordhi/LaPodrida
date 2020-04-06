@@ -3,31 +3,35 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>La Podrida Game</title>
-    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.4.1/css/bootstrap.min.css}"/>
+
 </head>
-
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">La Podrida</a>
-</nav>
+<div class="jumbotron text-center">
+    <h1>La Podrida API v.0.0.1</h1>
+    <p>running... (under constuction)</p>
+</div>
 
-<main role="main" class="container">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Projecte</h3>
+            <p>Repartidor d'una baralla de cartes.</p>
+            <p><a href="http://github.com/jordhi/LaPodrida" target="_blank">Codi font</a></p>
+        </div>
+        <div class="col-sm-6">
+            <h3>Documentació</h3>
+            <p>GET, PUT, POST, DELETE, ...</p>
+        </div>
 
-    <div class="starter-template">
-        <h1><span th:text="${appName}"></span></h1>
-        <h2>
-            <span th:text="'Under construction'"></span>
-        </h2>
     </div>
+</div>
 
-    <ul th:each="player : ${users}">
-        <li th:text="${player}"></li>
-    </ul>
-
-</main>
-<script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
 </body>
 </html>
