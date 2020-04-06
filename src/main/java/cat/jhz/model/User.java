@@ -60,6 +60,14 @@ public class User  {
         this.fullName = fullName;
     }
 
+    public List<Card> getCartes() {
+        return cartes;
+    }
+
+    public void setCartes(List<Card> cartes) {
+        this.cartes = cartes;
+    }
+
     @Override
     public String toString() {
         return "User{" +

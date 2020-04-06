@@ -1,6 +1,7 @@
 package cat.jhz.resources;
 
 import cat.jhz.controllers.UserController;
+import cat.jhz.model.Card;
 import cat.jhz.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +33,18 @@ public class UserResource {
                         .stream()
                         .filter(u -> u.getId().equals(id))
                         .collect(Collectors.toList());
+    }
+
+    @GetMapping("/{id}/cards")
+    public List<Card> getUserCards(@PathVariable String id) {
+        List<User> userList;
+        userList = userController.readAll()
+            .stream()
+            .filter(u -> u.getId().equals((id)))
+            .collect(Collectors.toList());
+        if(userList.size() != 1) throw new IllegalStateException();
+        return userList.get(0).getCartes();
+
     }
 
     @PostMapping
