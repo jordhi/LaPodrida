@@ -7,8 +7,15 @@ public class Card {
     private String id;
     private String num;
     private String pal;
+    //private Image image;
 
     public Card() {}
+
+    public Card(String id, String num, String pal) {
+        this.id = id;
+        this.num = num;
+        this.pal = pal;
+    }
 
     public String getId() {
         return id;
