@@ -3,11 +3,10 @@ package cat.jhz.resources;
 import cat.jhz.controllers.CardController;
 import cat.jhz.model.Card;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(CardResource.DECK)
@@ -24,5 +23,10 @@ public class CardResource {
     @GetMapping
     public List<Card> readAll() {
         return cardController.getDeck().getDeck();
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteCardFromDeck(@PathVariable String id) {
+        cardController.deleteCard(id);
     }
 }
