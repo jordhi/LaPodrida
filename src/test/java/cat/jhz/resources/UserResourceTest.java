@@ -38,6 +38,6 @@ public class UserResourceTest {
 
     }
 
-    //TODO testing put acrd to user
+    //TODO testing put card to user. With POSTMAN app test is passed
 
 }
