@@ -2,6 +2,7 @@ package cat.jhz.model;
 
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -15,7 +16,7 @@ public class User  {
     private String password;
     private String fullName;
 
-    List<Card> cartes;
+    private List<Card> cartes = new ArrayList<>();
 
     public User() {}
 
@@ -66,6 +67,13 @@ public class User  {
 
     public void setCartes(List<Card> cartes) {
         this.cartes = cartes;
+    }
+
+    public void addCard(String idcard) {
+        Card card;
+        if(idcard.length() == 2) card = new Card(idcard,idcard.substring(0,1),idcard.substring(1,2));
+        else card = new Card(idcard,idcard.substring(0,2),idcard.substring(2,3));
+        this.cartes.add(card);
     }
 
     @Override

@@ -27,28 +27,23 @@ public class UserResource {
     }
 
     @GetMapping("/{id}")
-    public List<User> getUser(@PathVariable String id) {
-        return
-                userController.readAll()
-                        .stream()
-                        .filter(u -> u.getId().equals(id))
-                        .collect(Collectors.toList());
+    public User getUser(@PathVariable String id) {
+        return userController.findUser(id);
     }
 
     @GetMapping("/{id}/cards")
     public List<Card> getUserCards(@PathVariable String id) {
-        List<User> userList;
-        userList = userController.readAll()
-            .stream()
-            .filter(u -> u.getId().equals((id)))
-            .collect(Collectors.toList());
-        if(userList.size() != 1) throw new IllegalStateException();
-        return userList.get(0).getCartes();
-
+        User u = userController.findUser(id);
+        return u.getCartes();
     }
 
     @PostMapping
     public void addUser(@RequestBody User user) {
         userController.add(user);
+    }
+
+    @PutMapping("{id}/cards/{idcard}")
+    public void addCardToUser(@PathVariable String id, @PathVariable String idcard) {
+        userController.findUser(id).addCard(idcard);
     }
 }
