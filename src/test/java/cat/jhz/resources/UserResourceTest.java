@@ -38,7 +38,6 @@ public class UserResourceTest {
 
     }
 
-    //TODO testing put card to user. With POSTMAN app test is passed
     @Test
     void putCardToUser() {
         User user = new User("10");
