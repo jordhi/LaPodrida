@@ -1,5 +1,6 @@
 package cat.jhz.resources;
 
+import cat.jhz.model.Card;
 import cat.jhz.model.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,7 @@ import org.springframework.web.reactive.function.BodyInserters;
 
 import java.util.List;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @ApiTestConfig
 public class UserResourceTest {
@@ -39,5 +39,37 @@ public class UserResourceTest {
     }
 
     //TODO testing put card to user. With POSTMAN app test is passed
+    @Test
+    void putCardToUser() {
+        User user = new User("10");
+        //add User with post
+        this.webTestClient
+                .post()
+                .uri(UserResource.USER)
+                .body(BodyInserters.fromValue(user))
+                .exchange()
+                .expectStatus().isOk();
+        //put card to User
+        this.webTestClient
+                .put()
+                .uri(UserResource.USER + "/10/cards/11")
+                .exchange()
+                .expectStatus().isOk();
+
+        //read cards from user with get
+        List<Card> cartes =
+        this.webTestClient
+                .get()
+                .uri(UserResource.USER + "/10/cards")
+                .exchange()
+                .expectStatus().isOk()
+                .expectBodyList(Card.class)
+                .returnResult()
+                .getResponseBody();
+
+        assertTrue(cartes.size() > 0);
+        assertNotNull(cartes.get(0).getId());
+        assertEquals("11",cartes.get(0).getId());
+    }
 
 }
