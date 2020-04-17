@@ -41,6 +41,10 @@ public class UserResourceTest {
     @Test
     void putCardToUser() {
         User user = new User("10");
+        Card card = new Card();
+        card.setId("11");
+        card.setNum("1");
+        card.setPal("1");
         //add User with post
         this.webTestClient
                 .post()
@@ -51,7 +55,8 @@ public class UserResourceTest {
         //put card to User
         this.webTestClient
                 .put()
-                .uri(UserResource.USER + "/10/cards/11")
+                .uri(UserResource.USER + "/10/cards/")
+                .body(BodyInserters.fromValue(card))
                 .exchange()
                 .expectStatus().isOk();
 
