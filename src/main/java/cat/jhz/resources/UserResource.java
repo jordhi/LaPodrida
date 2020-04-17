@@ -42,6 +42,7 @@ public class UserResource {
         userController.add(user);
     }
 
+    //TODO idcard hauria de ser una Card no una String i també requestBody no pathvariable
     @PutMapping("{id}/cards/{idcard}")
     public void addCardToUser(@PathVariable String id, @PathVariable String idcard) {
         userController.findUser(id).addCard(idcard);

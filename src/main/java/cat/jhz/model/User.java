@@ -69,6 +69,7 @@ public class User  {
         this.cartes = cartes;
     }
 
+    //TODO Canviar el parametre. Ha de rebre una Card i no una String
     public void addCard(String idcard) {
         Card card;
         if(idcard.length() == 2) card = new Card(idcard,idcard.substring(0,1),idcard.substring(1,2));
