@@ -7,7 +7,6 @@ public class Card {
     private String id;
     private String num;
     private String pal;
-    //private Image image;
 
     public Card() {}
 
@@ -39,5 +38,14 @@ public class Card {
 
     public void setPal(String pal) {
         this.pal = pal;
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "id='" + id + '\'' +
+                ", num='" + num + '\'' +
+                ", pal='" + pal + '\'' +
+                '}';
     }
 }
