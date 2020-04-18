@@ -48,7 +48,7 @@ public class UserResource {
         userController.findUser(id).addCard(idcard);
     }*/
 
-    @PutMapping("{id}/cards/")
+    @PutMapping("{id}")
     public void addCardToUser(@PathVariable String id, @RequestBody Card card) {
         userController.findUser(id).addCard(card);
     }

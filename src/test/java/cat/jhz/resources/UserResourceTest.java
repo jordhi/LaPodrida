@@ -55,7 +55,7 @@ public class UserResourceTest {
         //put card to User
         this.webTestClient
                 .put()
-                .uri(UserResource.USER + "/10/cards/")
+                .uri(UserResource.USER + "/10")
                 .body(BodyInserters.fromValue(card))
                 .exchange()
                 .expectStatus().isOk();
