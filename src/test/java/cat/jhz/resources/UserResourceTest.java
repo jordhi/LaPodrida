@@ -1,7 +1,6 @@
 package cat.jhz.resources;
 
 import cat.jhz.model.Card;
-import cat.jhz.model.Deck;
 import cat.jhz.model.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

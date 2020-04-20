@@ -17,12 +17,12 @@ public class UserResource {
 
     private UserController userController;
 
-    @Autowired
     private CardController cardController;
 
     @Autowired
-    public UserResource(UserController userController) {
+    public UserResource(UserController userController, CardController cardController) {
         this.userController = userController;
+        this.cardController = cardController;
     }
 
     @GetMapping
