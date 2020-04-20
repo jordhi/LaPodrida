@@ -1,5 +1,6 @@
 package cat.jhz.resources;
 
+import cat.jhz.controllers.CardController;
 import cat.jhz.controllers.UserController;
 import cat.jhz.model.Card;
 import cat.jhz.model.User;
@@ -15,6 +16,9 @@ public class UserResource {
     public static final String USER = "/users";
 
     private UserController userController;
+
+    @Autowired
+    private CardController cardController;
 
     @Autowired
     public UserResource(UserController userController) {
@@ -51,5 +55,6 @@ public class UserResource {
     @PutMapping("{id}")
     public void addCardToUser(@PathVariable String id, @RequestBody Card card) {
         userController.findUser(id).addCard(card);
+        cardController.deleteCard(card.getId());
     }
 }

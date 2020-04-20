@@ -1,6 +1,7 @@
 package cat.jhz.resources;
 
 import cat.jhz.model.Card;
+import cat.jhz.model.Deck;
 import cat.jhz.model.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,9 +72,20 @@ public class UserResourceTest {
                 .returnResult()
                 .getResponseBody();
 
+        //verify if deck contains one card less
+        List<Card> deck = this.webTestClient
+                .get()
+                .uri(CardResource.DECK)
+                .exchange()
+                .expectStatus().isOk()
+                .expectBodyList(Card.class)
+                .returnResult()
+                .getResponseBody();
+
         assertTrue(cartes.size() > 0);
         assertNotNull(cartes.get(0).getId());
         assertEquals("11",cartes.get(0).getId());
+        assertEquals(deck.size(),47);
     }
 
 }
