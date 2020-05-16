@@ -60,14 +60,15 @@ public class UserResource {
     }
 
 
-    @PutMapping
-    public void addCardListToUser() {
+   /* @PutMapping("{id}")
+    public void addCardListToUser(@PathVariable String id, @RequestBody List<Card> cardsList) {
         //TODO cal un endpoint per afegior una llisa de cartes no només carta a carta
     }
+*/
 
-
-    @DeleteMapping
-    public void deleteCardsFromUser() {
+    @DeleteMapping("{id}/resetcards")
+    public void deleteCardsFromUser(@PathVariable String id) {
         //TODO cal netejar les cartes que els jugadors tenen perquè a cada ronda el jugador coomença sense cap cart
+        userController.findUser(id).getCartes().clear();
     }
 }

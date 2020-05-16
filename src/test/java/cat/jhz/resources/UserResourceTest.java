@@ -89,4 +89,46 @@ public class UserResourceTest {
         //assertEquals(deck.size(),47);
     }
 
+    @Test
+    void resetCardsFromUser() {
+        User user = new User("10");
+        Card card = new Card();
+        card.setId("11");
+        card.setNum("1");
+        card.setPal("1");
+        //add User with post
+        this.webTestClient
+                .post()
+                .uri(UserResource.USER)
+                .body(BodyInserters.fromValue(user))
+                .exchange()
+                .expectStatus().isOk();
+        //put card to User
+        this.webTestClient
+                .put()
+                .uri(UserResource.USER + "/10")
+                .body(BodyInserters.fromValue(card))
+                .exchange()
+                .expectStatus().isOk();
+        //delete cards from User
+        this.webTestClient
+                .delete()
+                .uri(UserResource.USER + "/10/resetcards")
+                .exchange()
+                .expectStatus().isOk();
+
+        List<Card> cartes =
+                this.webTestClient
+                        .get()
+                        .uri(UserResource.USER + "/10/cards")
+                        .exchange()
+                        .expectStatus().isOk()
+                        .expectBodyList(Card.class)
+                        .returnResult()
+                        .getResponseBody();
+        assertTrue(cartes.size() == 0);
+
+
+    }
+
 }
