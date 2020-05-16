@@ -55,6 +55,7 @@ public class UserResource {
     @PutMapping("{id}")
     public void addCardToUser(@PathVariable String id, @RequestBody Card card) {
         userController.findUser(id).addCard(card);
-        cardController.deleteCard(card.getId());
+        //It's not necessary delete card from deck because avery round start with full deack
+        //cardController.deleteCard(card.getId());
     }
 }
