@@ -58,4 +58,16 @@ public class UserResource {
         //It's not necessary delete card from deck because avery round start with full deack
         //cardController.deleteCard(card.getId());
     }
+
+
+    @PutMapping
+    public void addCardListToUser() {
+        //TODO cal un endpoint per afegior una llisa de cartes no només carta a carta
+    }
+
+
+    @DeleteMapping
+    public void deleteCardsFromUser() {
+        //TODO cal netejar les cartes que els jugadors tenen perquè a cada ronda el jugador coomença sense cap cart
+    }
 }
