@@ -8,6 +8,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 import cat.jhz.ApiTestConfig;
 import org.springframework.web.reactive.function.BodyInserters;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -71,22 +72,9 @@ public class UserResourceTest {
                 .returnResult()
                 .getResponseBody();
 
-        //verify if deck contains one card less
-        /*List<Card> deck = this.webTestClient
-                .get()
-                .uri(CardResource.DECK)
-                .exchange()
-                .expectStatus().isOk()
-                .expectBodyList(Card.class)
-                .returnResult()
-                .getResponseBody();
-
-         */
-
         assertTrue(cartes.size() > 0);
         assertNotNull(cartes.get(0).getId());
         assertEquals("11",cartes.get(0).getId());
-        //assertEquals(deck.size(),47);
     }
 
     @Test
@@ -127,8 +115,43 @@ public class UserResourceTest {
                         .returnResult()
                         .getResponseBody();
         assertTrue(cartes.size() == 0);
+    }
 
+    @Test
+    public void putListCardsToUser() {
+        User user = new User("20");
+        List<Card> listcard = new ArrayList<>();
+        listcard.add(new Card("21","2","1"));
+        listcard.add(new Card("22","2","2"));
+        listcard.add(new Card("23","2","3"));
 
+        //add User with post
+        this.webTestClient
+                .post()
+                .uri(UserResource.USER)
+                .body(BodyInserters.fromValue(user))
+                .exchange()
+                .expectStatus().isOk();
+
+        //add List cards to User
+        this.webTestClient
+                .put()
+                .uri(UserResource.USER + "/20/cards")
+                .body(BodyInserters.fromValue(listcard))
+                .exchange()
+                .expectStatus().isOk();
+
+        List<Card> cartes =
+                this.webTestClient
+                        .get()
+                        .uri(UserResource.USER + "/20/cards")
+                        .exchange()
+                        .expectStatus().isOk()
+                        .expectBodyList(Card.class)
+                        .returnResult()
+                        .getResponseBody();
+
+        assertTrue(cartes.size() == 3);
     }
 
 }

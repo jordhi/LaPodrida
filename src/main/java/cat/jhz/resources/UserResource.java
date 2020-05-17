@@ -60,7 +60,6 @@ public class UserResource {
     }
 
 
-    //TODO ELS DOS PMETODES S'HAN PROVAT AMB POSTMAN, FALTA FER EL TESTS
     @PutMapping("{id}/cards")
     public void addCardListToUser(@PathVariable String id, @RequestBody List<Card> cardsList) {
         userController.findUser(id).clearListCards();
