@@ -40,7 +40,7 @@ public class UserResourceTest {
 
     @Test
     void putCardToUser() {
-        User user = new User("10");
+        User user = new User("9");
         Card card = new Card();
         card.setId("11");
         card.setNum("1");
@@ -55,7 +55,7 @@ public class UserResourceTest {
         //put card to User
         this.webTestClient
                 .put()
-                .uri(UserResource.USER + "/10")
+                .uri(UserResource.USER + "/9")
                 .body(BodyInserters.fromValue(card))
                 .exchange()
                 .expectStatus().isOk();
@@ -64,7 +64,7 @@ public class UserResourceTest {
         List<Card> cartes =
         this.webTestClient
                 .get()
-                .uri(UserResource.USER + "/10/cards")
+                .uri(UserResource.USER + "/9/cards")
                 .exchange()
                 .expectStatus().isOk()
                 .expectBodyList(Card.class)

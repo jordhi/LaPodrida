@@ -90,4 +90,12 @@ public class User  {
                 ", fullName='" + fullName + '\'' +
                 '}';
     }
+
+    public void addListCards(List<Card> cardsList) {
+        cartes = cardsList;
+    }
+
+    public void clearListCards() {
+        cartes.clear();
+    }
 }
